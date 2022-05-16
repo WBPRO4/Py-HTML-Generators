@@ -1,13 +1,4 @@
-print(
-    """
-    ----------------------------------------------------------------
-    |HTML Table Generator By WBPRO (aka Wülfinger Balázs)          |
-    |--------------------------------------------------------------|
-    |Made at midnight fueled by power of like 10 energy drinks")   |
-    ----------------------------------------------------------------
-    """
-)
-
+print("HTML Table Generator By WBPRO (aka Wülfinger Balázs)\nMade at midnight fueled by power of like 10 energy drinks")
 
 # Tells the generator how many cells in each row
 Content = [3,4,5]
@@ -15,9 +6,6 @@ Content = [3,4,5]
 # The filename the generators will use
 # if you dont add .html it will be automagically append it to the filename
 FileName = "Index.html"
-
-# Sets what gets writtten into the Title Attribute
-Title = "Testing..."
 
 # Dont mess with these they are indent levels for the generator
 Lv1 = "  "
@@ -38,19 +26,16 @@ def WriteHeaders():
     Write proper metadata to the begining of the file.
     """
     # This is ugly as fuck but its 2am what are u gonna do?
-    MetaData = f"""<!DOCTYPE html>
+    MetaData = """<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{Title}</title>
+        <title>Document</title>
     </head>
     <body>
         """
-
-    # Create a Context Manager 
-    # This make handling errors easier 
-    # and make sure our file is close porperly every time
+    # Create a Context Manager
     with open(FileName, "w+") as FileHandle:
         FileHandle.write(MetaData)
         GenerateTable(FileHandle, Content)
